@@ -1,0 +1,59 @@
+@import "./normalize.css";
+
+/* :root -> 获取根元素html */
+/* css中用--定义变量 */
+:root {
+	--color-text: #666;
+	--color-high-text: #ff5777;
+	--color-tint: #ff8198;
+	--color-background: #fff;
+	--font-size: 14px;
+	--line-height: 1.5
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+	user-select: none; /* 禁止用户鼠标在页面上选中文字/图片等 */
+	-webkit-tap-highlight-color: transparent; /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
+	background: var(--color-background);
+	color: var(--color-text);
+	/* rem vw/vh */
+	width: 100vw;
+}
+
+a {
+	color: var(--color-text);
+	text-decoration: none; /* 下划线 */
+}
+
+/* 清除浮动 */
+/* 在类名为“clearfix”的元素内最后面加入内容 */
+.clear-fix::after {
+	clear: both; /* 清除两边浮动 */
+	content: ''; /* 内容为“.”就是一个英文的句号而已。也可以不写 */
+	display: block; /* 加入的这个元素转换为块级元素 */ 
+	width: 0;
+	height: 0;
+	visibility: hidden; /* 可见度设为隐藏。注意它和display:none;是有区别的。visibility:hidden;仍然占据空间，只是看不到而已 */
+}
+
+/* 这是针对于IE6的，因为IE6不支持:after伪类，这个神奇的zoom:1让IE6的元素可以清除浮动来包裹内部元素。具体意思的话，不用深究，听说微软的工程师自己都无法解释清楚。height:1%效果也是一样 */
+.clear-fix {
+	zoom: 1;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
